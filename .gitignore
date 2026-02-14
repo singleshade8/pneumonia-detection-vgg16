@@ -1,0 +1,54 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ===== Virtual Environments =====
+venv/
+env/
+venv-gpu/
+.venv/
+
+# ===== TensorFlow / ML Artifacts =====
+*.h5
+*.keras
+*.ckpt
+checkpoints/
+logs/
+runs/
+
+# ===== Datasets (large) =====
+chest_xray/
+data/
+datasets/
+
+# ===== Flask uploads & generated files =====
+static/uploads/
+static/cm.png
+metrics_cache.json
+
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===== Node (if frontend exists) =====
+node_modules/
+dist/
+build/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== Environment files =====
+.env
+.env.*
+
+# ===== PDFs / reports (optional) =====
+*.pdf
+*.docx
+
+# ===== Logs =====
+*.log

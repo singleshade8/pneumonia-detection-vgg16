@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-light text-center mx-auto" style="max-width: 600px;">
+    <h2 class="mb-3">Upload Chest X-ray Image</h2>
+
+    <div id="drop-area">
+        <p id="drop-text">📂 Click or Drop X-ray Here</p>
+        <img id="preview" src="#" alt="Preview">
+    </div>
+    <input type="file" id="file-input" name="file" style="display:none;" onchange="this.form.submit()">
+
+    <form method="POST" enctype="multipart/form-data" class="mt-3">
+        <button type="submit" class="btn btn-primary btn-lg">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="mt-4">
+        <h3 class="result-text {% if prediction == 'PNEUMONIA' %}text-pneumonia{% else %}text-normal{% endif %}">
+            {{ prediction }}
+        </h3>
+        <p>Confidence:</p>
+        <p>NORMAL: {{ prob.NORMAL * 100 }}%</p>
+        <p>PNEUMONIA: {{ prob.PNEUMONIA * 100 }}%</p>
+
+        {% if image_url %}
+        <img src="{{ image_url }}" class="img-fluid rounded mt-3" style="max-height: 400px;">
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <p class="text-danger mt-2">{{ error }}</p>
+    {% endif %}
+</div>
+{% endblock %}

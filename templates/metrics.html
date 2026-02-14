@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4">
+
+    <!-- Overall Accuracy Card -->
+    <div class="card shadow-sm p-4 mb-4">
+        <h4 class="text-center mb-3">📈 Overall Accuracy</h4>
+        <div class="text-center">
+            <span class="badge rounded-pill bg-success p-3 fs-4">
+                {{ (accuracy * 100) | round(2) }}%
+            </span>
+        </div>
+    </div>
+
+    <!-- Per-Class Metrics Card -->
+    <div class="card shadow-sm p-4 mb-4">
+        <h4 class="text-center mb-3">Per-Class Metrics</h4>
+        <table class="table table-striped table-hover mb-0">
+            <thead class="table-primary">
+                <tr>
+                    <th>Class</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1-Score</th>
+                    <th>Support</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NORMAL</td>
+                    <td>{{ normal_metrics.precision }}</td>
+                    <td>{{ normal_metrics.recall }}</td>
+                    <td>{{ normal_metrics.f1_score }}</td>
+                    <td>{{ normal_metrics.support }}</td>
+                </tr>
+                <tr>
+                    <td>PNEUMONIA</td>
+                    <td>{{ pneumonia_metrics.precision }}</td>
+                    <td>{{ pneumonia_metrics.recall }}</td>
+                    <td>{{ pneumonia_metrics.f1_score }}</td>
+                    <td>{{ pneumonia_metrics.support }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Confusion Matrix & Averages Card -->
+    <div class="card shadow-sm p-4 mb-4">
+        <h4 class="text-center mb-3">Confusion Matrix & Averages</h4>
+        
+        <!-- Confusion Matrix -->
+        <div class="text-center mb-3">
+            <img src="{{ cm_path }}" alt="Confusion Matrix" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+        </div>
+
+        <!-- Macro & Weighted Averages Table -->
+        <table class="table table-bordered mb-0">
+            <thead class="table-secondary">
+                <tr>
+                    <th>Type</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1-Score</th>
+                    <th>Support</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Macro Avg</td>
+                    <td>{{ macro_avg.precision }}</td>
+                    <td>{{ macro_avg.recall }}</td>
+                    <td>{{ macro_avg.f1_score }}</td>
+                    <td>{{ macro_avg.support }}</td>
+                </tr>
+                <tr>
+                    <td>Weighted Avg</td>
+                    <td>{{ weighted_avg.precision }}</td>
+                    <td>{{ weighted_avg.recall }}</td>
+                    <td>{{ weighted_avg.f1_score }}</td>
+                    <td>{{ weighted_avg.support }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

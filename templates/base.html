@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* === Body & Font === */
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* === Navbar === */
+        .navbar {
+            background-color: #1976d2;
+            padding: 1rem 2rem;
+        }
+        .navbar-brand {
+            color: white !important;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .nav-link {
+            color: white !important;
+            font-size: 1.1rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+            color: #ffd700 !important;
+        }
+
+        /* === Container Cards === */
+        .card, .upload-card, .results-card, .clinical-card, .metrics-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        /* === Upload Area === */
+        #drop-area {
+            cursor: pointer;
+            width: 100%;
+            max-width: 400px;
+            height: 280px;
+            margin: auto;
+            border: 2px dashed #1976d2;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            background-color: #e3f2fd;
+            transition: all 0.3s ease;
+        }
+        #drop-area:hover {
+            border-color: #115293;
+            background-color: #d0e4fd;
+        }
+        #drop-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        #preview {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            margin: auto;
+            object-fit: contain;
+        }
+
+        /* === Buttons === */
+        .btn-primary {
+            background-color: #1976d2;
+            border: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #115293;
+        }
+
+        /* === Result Badges === */
+        .result-badge {
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .normal {
+            background-color: #4caf50;
+            color: white;
+        }
+        .pneumonia {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* === Footer === */
+        .footer {
+            background-color: #1976d2;
+            color: white;
+            padding: 15px 0;
+            margin-top: 50px;
+        }
+
+        /* === Tables / Metrics === */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .metrics-table th {
+            background-color: #1976d2;
+            color: white;
+            padding: 10px;
+        }
+        .metrics-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            .nav-link {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">🩻 Pneumonia Detection</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('metrics') }}">Metrics</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container py-4">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer class="footer text-center">
+    &copy; {{ current_year if current_year else '2025' }} Pneumonia Detection
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

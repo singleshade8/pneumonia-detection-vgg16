@@ -1,0 +1,262 @@
+/* === General Layout === */
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.upload-results-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+/* === Upload Card === */
+.upload-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  flex: 1;
+  min-width: 320px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.upload-card h2 {
+  margin-bottom: 8px;
+  color: #1565c0;
+}
+
+.upload-card p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.custom-dropzone {
+  border: 2px dashed #1976d2;
+  border-radius: 12px;
+  padding: 30px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.3s ease;
+  background-color: #f0f4ff;
+}
+
+.custom-dropzone:hover {
+  background-color: #e3f2fd;
+}
+
+.preview-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* === Button === */
+.button-row {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #1976d2;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0d47a1;
+}
+
+button:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+/* === Error Message === */
+.error-message {
+  color: #d32f2f;
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* === Results Card === */
+.results-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  flex: 1;
+  min-width: 360px;
+  max-width: 700px;
+}
+
+/* === Toggle Tabs === */
+.toggle-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: #f0f4ff;
+  border-radius: 10px;
+  padding: 5px;
+  gap: 8px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #1976d2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #e3f2fd;
+}
+
+.toggle-btn.active {
+  background-color: #1976d2;
+  color: white;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.3);
+}
+
+/* === Results Section === */
+.result-box {
+  background-color: #e8f5e9;
+  border-left: 6px solid #2e7d32;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.result-box h3 {
+  margin-bottom: 8px;
+  color: #2e7d32;
+}
+
+.result-box p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.clinical-card {
+  background-color: #fff8e1;
+  border-left: 6px solid #f9a825;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.clinical-card h3 {
+  margin-bottom: 10px;
+  color: #f57f17;
+}
+
+.clinical-card ul {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.clinical-card li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* === Metrics Section === */
+.metrics-section {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.accuracy-box {
+  background-color: #e8f5e9;
+  border-left: 5px solid #2e7d32;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.metrics-table th {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.metrics-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.metrics-table tr:hover {
+  background-color: #f7faff;
+}
+
+.metrics-section h4 {
+  margin-top: 20px;
+  color: #1565c0;
+}
+
+/* === Confusion Matrix === */
+.confusion-matrix {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.confusion-matrix h4 {
+  margin-bottom: 10px;
+  color: #1976d2;
+}
+
+.confusion-img {
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Animations === */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

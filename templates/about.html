@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-light mx-auto" style="max-width: 800px; padding: 20px;">
+    <h2 class="mb-3 text-center">About Pneumonia Detection</h2>
+    <p>
+        This project is a real-time pneumonia detection system that uses deep learning on chest X-ray images.
+        The model predicts whether the X-ray shows a healthy lung or signs of pneumonia.
+    </p>
+    <p>
+        Features include:
+        <ul>
+            <li>Accurate detection using a CNN-based model (VGG16 or similar)</li>
+            <li>Interactive web interface for uploading X-ray images</li>
+            <li>Model evaluation metrics and confusion matrix visualization</li>
+            <li>Clinical recommendations based on results</li>
+        </ul>
+    </p>
+    <p>
+        This tool is intended to assist medical professionals and is not a substitute for professional medical advice.
+    </p>
+</div>
+{% endblock %}
